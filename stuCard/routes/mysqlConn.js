@@ -18,6 +18,7 @@ var pool = mysql.createPool({
 
 // testing
 var searchResults = function(search,callback){
+    // select * from stuInfos limit 0,1;   pages , limit
     var results_back =[] ;
     var sql = generateSql_search(search);
     console.log(sql.sql,sql.sqlData);
@@ -25,15 +26,15 @@ var searchResults = function(search,callback){
         conn.query(sql.sql,sql.sqlData,function(err,results,field){
             if(err || !results.length){
                 console.log(err ?err:"无结果");
-                callback(false);
+                //callback(false);
             }else{
                 for(var s in results){results_back.push(results[s])};
+
             }
-            conn.release();
             callback( results_back );
+            conn.release();
         })
     });
-    //callback({name:"cl",id:"",stuNum:"",money:23});
 }
 
 

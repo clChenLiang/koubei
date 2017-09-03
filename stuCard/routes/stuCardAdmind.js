@@ -48,9 +48,14 @@ function doWithRouter(req, res){
         case "getStus":
             console.log("route stuCard/getStus :",req.body);
             query = {
-                wants:"*",
+                wants:"name,grade,sex,stuNum,money",
                 table:"koubeiStuCard.stuInfos",
-                conditions:{}
+                conditions:{},
+                pages:{
+                    // 默认5，0 作为偏移
+                    limit:req.body.limit || 5,
+                    offset:req.body.pages - 1 || 0
+                }
             }
             getStusFromDB(query,res);
             break;

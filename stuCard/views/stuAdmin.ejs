@@ -65,6 +65,7 @@
     <a class="item active" data-tab="second">消费记录</a>
     <a class="item" data-tab="third">新增办卡</a>
     <a class="item" data-tab="four">模拟消费</a>
+    <a class="item" data-tab="five">修改信息</a>
 </div>
 <div class="ui bottom attached tab segment " data-tab="first"><table class="ui celled table stuInfo">
         <thead>
@@ -72,6 +73,7 @@
             <th>年级</th>
             <th>性别</th>
             <th>学号</th>
+            <th>余额</th>
         </tr></thead>
         <tbody>
         <tr>
@@ -79,22 +81,25 @@
             <td>研一</td>
             <td>男</td>
             <td>1311082317</td>
+            <td>180</td>
         </tr>
         <tr>
             <td>口碑</td>
             <td>研一</td>
             <td>男</td>
             <td>1322019913</td>
+            <td>180</td>
         </tr>
         <tr>
             <td>口碑</td>
             <td>研一</td>
             <td>男</td>
             <td>1311003366</td>
+            <td>180</td>
         </tr>
         </tbody>
         <tfoot>
-        <tr><th colspan="4">
+        <tr><th colspan="5">
                 <div class="ui right floated pagination menu">
                     <a class="icon item">
                         <i class="left chevron icon"></i>
@@ -256,9 +261,49 @@
         <div class="ui button" tabindex="1">确认添加</div>
     </form> </div>
 
-
-</div>
-
+<div class="ui bottom attached tab segment" data-tab="five">
+    <form class="ui form">
+        <div class="field">
+            <label>学生卡号</label>
+            <div class="fields">
+                <select class="ui fluid dropdown">
+                    <option value="1811082659">1511082659</option>
+                    <option value="1511082660">1511082660</option>
+                    <option value="1511082661">1511082661</option>
+                    <option value="1511082662">1511082662</option>
+                </select>
+            </div >
+        </div>
+        <div class="field">
+            <label>年级</label>
+            <select class="ui fluid dropdown">
+                <option value="1">研一</option>
+                <option value="2">研二</option>
+                <option value="3">研三</option>
+                <option value="4">本科</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>性别</label>
+            <select class="ui fluid dropdown">
+                <option value="male">男</option>
+                <option value="female">女</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>初始金额</label>
+            <select class="ui fluid dropdown">
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="150">150</option>
+                <option value="300">300</option>
+            </select>
+        </div>
+        <div class="two field">
+            <div class="ui button" tabindex="2">确认更改</div>
+            <div class="ui button" tabindex="3">删除该卡</div>
+        </div>
+    </form> </div>
 </body>
 
 </html>

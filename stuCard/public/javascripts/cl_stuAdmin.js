@@ -41,12 +41,12 @@ $(document).ready(function(){
     $('.ui.checkbox').checkbox();*/
     $('.menu .item').tab();
     // 绑定事件
-    // 使用父元素监听
+    // 使用父元素监听；学生总览和消费记录
     $("tfoot div").click(function(event){
         console.log("click",event.target.text,event.target.innerText,event);
         if(event.target.text){
             // 此处有 ... 在后续过程需要处理
-            currentPage = parseInt(event.target.text);
+            currentPage = parseInt(event.target.text)||currentPage;
         }else{
             // 判断点击的是下一页还是上一页;并确保首页为 1
             event.target.className.indexOf("right") > -1 ? currentPage++ : currentPage--;
@@ -60,10 +60,12 @@ $(document).ready(function(){
         action = action === "first" ? "getStus" : "getConsume";
         console.log(action);
         // 暂定每页放5条数据
-        getData(action,{pages:currentPage,skip:5},function(a){alert(JSON.stringify(a))});
+        getData(action,{pages:currentPage,limit:1},function(rows){
+            $(temp).find("tbody").html( generatTable(rows) );
+        });
         //getData("getStus",{pages:currentPage,skip:5},function(a){alert(JSON.stringify(a))});
         // 获取表体，进行更新
-        console.log($(temp).find("tbody"))
+        console.log("tbody :",$(temp).find("tbody"))
     })
 });
 
@@ -99,9 +101,16 @@ function getData(url,data,callback){
         }
     });
 }
-// 绑定事件
-$(".login-header").click(function(event){
-    console.log("click",event.target);
-    getData("getStus",{a:12,b:23},function(a){alert(JSON.stringify(a))});
-})
+// 生成表格
+function generatTable(data){
+    var tbody = "", td ;
+    for(var i in data){
+        td = "";
+       for(var j in data[i]){
+           td += "<td>"+data[i][j]+"</td>";
+       }
+        tbody += "<tr>"+td+"</tr>";
+    }
+    return tbody;
+}
 

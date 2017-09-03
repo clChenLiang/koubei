@@ -13,13 +13,18 @@
 数据接口：
     getStus ：
         前端：
-            getData("getStus",{a:12,b:23},function(a){console.log(a)});// 数据随意
+            getData("getStus",{pages:currentPage,limit:1},function(a){console.log(a)});// 数据随意
         后台：
             query={
-               wants:"*",
+               wants:"name,grade,sex,stuNum,money",
                table:"koubeiStuCard.stuInfos",
-               conditions:{}
+               conditions:{},
+               pages:{
+                   limit:req.body.limit || 5,
+                   offset:req.body.pages - 1 || 0
+               }
             }
+        存在BUG:表格底部多点几次，出现NaN --- bug 已解决，详见代码
     addStu ：
     updateStuCard ：
     addStuConsume ：
