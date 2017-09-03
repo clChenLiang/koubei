@@ -7,9 +7,10 @@ var mysql = require("mysql");
 var pool = mysql.createPool({
     host:"localhost",
     user:"root",
-    password:"clchenliang520",
+    // 上传的时候，隐藏密码与库
     connectionLimit:30,
-
+    datebase:"koubeiStuCard",
+    charset:"utf8_bin"
 });
 
 var generateSql_search = function(/*action,*/search){
