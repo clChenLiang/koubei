@@ -13,10 +13,17 @@ router.get('/', function(req, res, next) {
     res.render('stuAdmin', { title: '学生校园卡管理系统--made by cl,for 口碑电商' });
     res.end();
 });
-
+// testing
 router.get('/getStus',function(req, res){
+    console.log(req.body);
+    doWithRouter(query, res);
+});
+
+
+router.post('/getStus',function(req, res){
     doWithRouter(req, res);
 });
+
 
 router.get('/addStu',function(req, res){
     doWithRouter(req, res);
@@ -35,11 +42,17 @@ function doWithRouter(req, res){
     //console.log(req.url,req._parsedUrl.pathname);
     // 获取子路由
     var _route = req._parsedUrl.pathname.slice(1);
+    var query = {};
     //console.log(_route);
     switch (_route){
         case "getStus":
             console.log("route stuCard/getStus :",req.body);
-            getStusFromDB("getStus",res);
+            query = {
+                wants:"*",
+                table:"koubeiStuCard.stuInfos",
+                conditions:{}
+            }
+            getStusFromDB(query,res);
             break;
         case "addStu":
             console.log("route stuCard/addStu :",req.body);
@@ -53,13 +66,15 @@ function doWithRouter(req, res){
         default :
             break;
     }
-    res.end();
+    //res.end();
 }
 
 // 伪数据测试 -- 从数据库中返回伪数据 -- 待改成数据库中返回数据
-function getStusFromDB(params, res){
-    db.getStus(params,function(data){
+function getStusFromDB(query, res){
+    db.getStus(query,function(data){
+        console.log("get from db : ",data);
         res.send(data);
+        res.end();
     })
     //res.send()
 }

@@ -4,7 +4,24 @@
     tab  ： 新增学生
             查看消费信息 -- 缺检索条件
             查看学生信息
-            新增消费记录 -- 未实现
+            新增消费记录
+4.动态页面：
+    数据展示：$.ajax() 对页面进行修改
+    数据提交：$.form()
 
 
 数据接口：
+    getStus ：
+        前端：
+            getData("getStus",{a:12,b:23},function(a){console.log(a)});// 数据随意
+        后台：
+            query={
+               wants:"*",
+               table:"koubeiStuCard.stuInfos",
+               conditions:{}
+            }
+    addStu ：
+    updateStuCard ：
+    addStuConsume ：
+
+数据库操作：

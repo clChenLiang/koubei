@@ -14,28 +14,12 @@ var pool = mysql.createPool({
     charset:"utf8_bin"
 });
 
-var generateSql_search = function(/*action,*/search){
-    var sql = "select " + search.wants +" from "+ search.table + " ",sql_d = [],sql_temp = "";
-    for(var condi in search.conditions){
-        if(search.conditions[condi].length == 1){
-            sql_temp += " and " + condi + " = ? "
-            sql_d.push(search.conditions[condi][0])
-        }else if(search.conditions[condi].length == 2){
-            sql_temp += " and " + condi + " between ? and ? "
-            sql_d.push(search.conditions[condi][0]);
-            sql_d.push(search.conditions[condi][1]);
-        }
-    }
-
-    sql += sql_temp? ("where"+sql_temp.substring(4,sql_temp.length-1)):"";//截取掉 sql_temp 的前后，使之无误插入 sql 语句中来
-    search.pages?(sql+=" limit "+search.pages.limit+" offset "+search.pages.offset):null;
-    return {sql:sql,sqlData:sql_d}
-}
 
 
+// testing
 var searchResults = function(search,callback){
     var results_back =[] ;
-    /*var sql = generateSql_search(search);
+    var sql = generateSql_search(search);
     console.log(sql.sql,sql.sqlData);
     pool.getConnection(function(err,conn){
         conn.query(sql.sql,sql.sqlData,function(err,results,field){
@@ -46,29 +30,15 @@ var searchResults = function(search,callback){
                 for(var s in results){results_back.push(results[s])};
             }
             conn.release();
-            callback( results_back);
+            callback( results_back );
         })
-    });*/
-    callback({name:"cl",id:"",stuNum:"",money:23});
+    });
+    //callback({name:"cl",id:"",stuNum:"",money:23});
 }
 
 
 
-var generateSql_update = function(search){
 
-    var sql = "update " + search.table +" ",sql_d = [],sql_temp = "",sql_where="";
-    for(var s in search.wants){
-        sql_temp += s +"=? , ";
-        sql_d.push(search.wants[s]);
-    }
-    for(var s in search.conditions){
-        sql_where += " and " + s +"=? ,";
-        sql_d.push(search.conditions[s]);
-    }
-    sql += sql_temp? (" set "+sql_temp.substring(0,sql_temp.length-2)):"";//截取掉 sql_temp 的前后，使之无误插入 sql 语句中来
-    sql += sql_where?( "where "+sql_where.substring(4,sql_where.length-1)):"";
-    return {sql:sql,sqlData:sql_d}
-}
 
 
 var updateCars = function(search,callback){
@@ -98,11 +68,7 @@ var updateCars = function(search,callback){
 }
 
 
-var generateSql_insert = function(search){
-    //var sql = "insert into " + search.table +" set ? ", sql_d= search.conditions;
-    ////insert into nb77.cars set ?
-    return {sql:"insert into " + search.table +" set ? ",sqlData:search.conditions}
-}
+
 
 
 var insertCars = function(search,callback){
@@ -129,24 +95,44 @@ var insertCars = function(search,callback){
 }
 
 
-var showTable = function(){
-    pool.getConnection(function(err,conn){
-        if(err){
-            console.log("error -----when from mysqlTest:11 ------\n"+err);
-        }else{
-            console.log("right ");
-            conn.query("select * from nb77.cars",function(err,results,field){
-                if(err || !results.length){console.log("error in the conn "+err+results)}
-                else{
-                    console.log(" results :");
-                    for(var s in results){console.log(results[s])};
-                }
-            })
-        }
-        conn.release();
-    })
+// 用于生成数据库插入语句
+var generateSql_insert = function(search){
+    //var sql = "insert into " + search.table +" set ? ", sql_d= search.conditions;
+    ////insert into nb77.cars set ?
+    return {sql:"insert into " + search.table +" set ? ",sqlData:search.conditions}
 }
-
+// 用于生成数据库更新语句
+var generateSql_update = function(search){
+    var sql = "update " + search.table +" ",sql_d = [],sql_temp = "",sql_where="";
+    for(var s in search.wants){
+        sql_temp += s +"=? , ";
+        sql_d.push(search.wants[s]);
+    }
+    for(var s in search.conditions){
+        sql_where += " and " + s +"=? ,";
+        sql_d.push(search.conditions[s]);
+    }
+    sql += sql_temp? (" set "+sql_temp.substring(0,sql_temp.length-2)):"";//截取掉 sql_temp 的前后，使之无误插入 sql 语句中来
+    sql += sql_where?( "where "+sql_where.substring(4,sql_where.length-1)):"";
+    return {sql:sql,sqlData:sql_d}
+}
+// 用于生成数据库查询语句
+var generateSql_search = function(/*action,*/search){
+    var sql = "select " + search.wants +" from "+ search.table + " ",sql_d = [],sql_temp = "";
+    for(var condi in search.conditions){
+        if(search.conditions[condi].length == 1){
+            sql_temp += " and " + condi + " = ? "
+            sql_d.push(search.conditions[condi][0])
+        }else if(search.conditions[condi].length == 2){
+            sql_temp += " and " + condi + " between ? and ? "
+            sql_d.push(search.conditions[condi][0]);
+            sql_d.push(search.conditions[condi][1]);
+        }
+    }
+    sql += sql_temp? ("where"+sql_temp.substring(4,sql_temp.length-1)):"";//截取掉 sql_temp 的前后，使之无误插入 sql 语句中来
+    search.pages?(sql+=" limit "+search.pages.limit+" offset "+search.pages.offset):null;
+    return {sql:sql,sqlData:sql_d}
+}
 // 将数据库结果转换成前端需要的数据,并增加回调参数;可扩充选择参数
 function changResultToFonted(result, callback){
     //

@@ -50,3 +50,30 @@ function submitForm(){
         data: formData
     });
 }
+
+// by cl
+function getData(url,data,callback){
+    // @params : url --- getStus  addStu  updateStuCard  addStuConsume
+    var data, callback;
+    if(typeof data === "function"){
+        callback = data,
+            data = {}
+    }
+    if(typeof data === "undefined" || typeof callback === "undefined" ){
+        data = {},
+            callback = function(){}
+    }
+
+    $.ajax({
+        "url":"/stuCard/"+url,
+        "data":data,
+        "type":"POST",
+        "dataType":"json",
+        "success":callback,
+        "error":function(msg){
+            alert("与远程服务器连接失败！");
+        }
+    });
+}
+
+getData("getStus",{a:12,b:23},function(a){console.log(a)});
