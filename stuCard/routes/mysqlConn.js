@@ -8,6 +8,7 @@ var pool = mysql.createPool({
     host:"localhost",
     user:"root",
     // 上传的时候，隐藏密码与库
+    password:"clchenliang520",
     connectionLimit:30,
     datebase:"koubeiStuCard",
     charset:"utf8_bin"
@@ -34,7 +35,7 @@ var generateSql_search = function(/*action,*/search){
 
 var searchResults = function(search,callback){
     var results_back =[] ;
-    var sql = generateSql_search(search);
+    /*var sql = generateSql_search(search);
     console.log(sql.sql,sql.sqlData);
     pool.getConnection(function(err,conn){
         conn.query(sql.sql,sql.sqlData,function(err,results,field){
@@ -47,7 +48,8 @@ var searchResults = function(search,callback){
             conn.release();
             callback( results_back);
         })
-    });
+    });*/
+    callback({name:"cl",id:"",stuNum:"",money:23});
 }
 
 
@@ -144,6 +146,16 @@ var showTable = function(){
         conn.release();
     })
 }
+
+// 将数据库结果转换成前端需要的数据,并增加回调参数;可扩充选择参数
+function changResultToFonted(result, callback){
+    //
+    var res = {};
+    // for(){}
+    callback(res);
+}
+
+
 // 获取所有学生列表
 module.exports.getStus = searchResults;
 // 添加学生信息
