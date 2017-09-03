@@ -4,7 +4,7 @@ var db = require("./mysqlConn");
 
 // res.body
 query = {
-    action:"addStu",//getStus  addStu  updateStuCard  addStuConsume
+    action:"addStu",//getStus getConsume addStu  updateStuCard  addStuConsume
     params:"{}"
 }
 
@@ -53,6 +53,8 @@ function doWithRouter(req, res){
                 conditions:{}
             }
             getStusFromDB(query,res);
+            break;
+        case "getConsume":
             break;
         case "addStu":
             console.log("route stuCard/addStu :",req.body);
