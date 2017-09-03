@@ -1,71 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <!-- Standard Meta -->
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <!-- Site Properities -->
     <title><%= title %></title>
 
     <link rel="stylesheet" type="text/css" href="stylesheets/semantic.min.css">
     <script src="javascripts/jquery.min.js"></script>
     <script src="javascripts/semantic.min.js"></script>
-    <!--<link rel="stylesheet" type="text/css" href="main.css">-->
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-            $('.ui.form').form({
-                        userName: {
-                            identifier : 'userName',
-                            rules: [
-                                {
-                                    type   : 'empty',
-                                    prompt : 'Please enter a username'
-                                }
-                            ]
-                        },
-                        password: {
-                            identifier : 'password',
-                            rules: [
-                                {
-                                    type   : 'empty',
-                                    prompt : 'Please enter a password'
-                                },
-                                {
-                                    type   : 'length[6]',
-                                    prompt : 'Your password must be at least 6 characters'
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        inline : true,
-                        on     : 'blur',
-                        onSuccess: submitForm
-                    }
-            );
-
-            $('.ui.form').submit(function(e){
-                return false;
-            });
-            //checkbox init
-            $('.ui.checkbox').checkbox();
-
-        });
-
-        function submitForm(){
-            alert('dd');
-            var formData = $('.ui.form input').serializeArray(); //or .serialize();
-            $.ajax({
-                type: 'POST',
-                url: 'ddd.html',
-                data: formData
-            });
-        }
-    </script>
+    <script type="text/javascript" src="javascripts/cl_stuAdmin.js"></script>
 
     <style type="text/css">
         body {
@@ -81,7 +27,7 @@
         }
         .login-header {
             background-color: #0066b1;
-            height: 160px;
+            /*height: 160px;*/
         }
 
         .ui.white {
@@ -94,59 +40,182 @@
         .ui.login-div{
             margin:30px 0 0 0;
         }
+
+        stuInfo {
+
+        }
     </style>
 
 </head>
 <body class="">
 <div class="ui login-header">
     <div class="ui grid">
-        <div class="row header-row1"></div>
+
         <div class="row text-center">
             <h1 class="ui header white">
                 <i class="settings icon"></i>
-                后台管理-用户登录
+                后台管理-学生卡信息
             </h1>
         </div>
     </div>
 </div>
-<div class="ui three column stackable grid login-div">
-    <div class="column"></div>
-    <div class="column">
-        <form id="login" class="ui fluid form segment">
-            <div class="field">
-                <label class="">用户名</label>
-                <div class="ui left icon input">
-                    <input type="text" name="userName" placeholder="">
-                    <i class="user icon"></i>
-                    <div class="ui corner label">
-                        <i class="icon asterisk"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="field">
-                <label class="">密码</label>
-                <div class="ui left icon input">
-                    <input type="password" name="password" placeholder="">
-                    <i class="lock icon"></i>
-                    <div class="ui corner label">
-                        <i class="icon asterisk"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="inline field">
-                <div class="ui checkbox">
-                    <input type="checkbox" name="terms">
-                    <label>记住密码</label>
-                </div>
-            </div>
-            <div class="inline field">
-                <div class="ui blue submit button">登录</div>
-            </div>
 
-        </form>
-    </div>
-    <div class="column"></div>
+<div class="ui top attached tabular menu">
+    <a class="item active" data-tab="first">学生总览</a>
+    <a class="item" data-tab="second">消费记录</a>
+    <a class="item" data-tab="third">新增办卡</a>
 </div>
+<div class="ui bottom attached tab segment " data-tab="first"><table class="ui celled table stuInfo">
+        <thead>
+        <tr><th>姓名</th>
+            <th>年级</th>
+            <th>性别</th>
+            <th>学号</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+            <td>口碑</td>
+            <td>研一</td>
+            <td>男</td>
+            <td>1311082317</td>
+        </tr>
+        <tr>
+            <td>口碑</td>
+            <td>研一</td>
+            <td>男</td>
+            <td>1322019913</td>
+        </tr>
+        <tr>
+            <td>口碑</td>
+            <td>研一</td>
+            <td>男</td>
+            <td>1311003366</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr><th colspan="4">
+                <div class="ui right floated pagination menu">
+                    <a class="icon item">
+                        <i class="left chevron icon"></i>
+                    </a>
+                    <a class="item">1</a>
+                    <a class="item">2</a>
+                    <a class="item">3</a>
+                    <a class="item">4</a>
+                    <a class="icon item">
+                        <i class="right chevron icon"></i>
+                    </a>
+                </div>
+            </th>
+        </tr></tfoot>
+    </table> </div>
+<div class="ui bottom attached tab segment active" data-tab="second"><table class="ui celled table stuInfo">
+        <thead>
+        <tr><th> 编号 </th>
+            <th>操作</th>
+            <th>金额</th>
+            <th>地点</th>
+            <th>时间</th>
+        </tr></thead>
+
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>消费</td>
+            <td>2.5</td>
+            <td>本部一餐3号机</td>
+            <td>20170903 14:58:09</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>消费</td>
+            <td>2.5</td>
+            <td>本部一餐3号机</td>
+            <td>20170903 14:58:09</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>消费</td>
+            <td>2.5</td>
+            <td>本部一餐3号机</td>
+            <td>20170903 14:58:09</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>消费</td>
+            <td>2.5</td>
+            <td>本部一餐3号机</td>
+            <td>20170903 14:58:09</td>
+        </tr>
+        </tbody>
+
+        <tfoot>
+        <tr><th colspan="5">
+                <div class="ui right floated pagination menu">
+                    <a class="icon item">
+                        <i class="left chevron icon"></i>
+                    </a>
+                    <a class="item">1</a>
+                    <a class="item">2</a>
+                    <a class="item">3</a>
+                    <a class="item">4</a>
+                    <a class="icon item">
+                        <i class="right chevron icon"></i>
+                    </a>
+                </div>
+            </th>
+        </tr></tfoot>
+    </table> </div>
+<div class="ui bottom attached tab segment" data-tab="third">
+    <form class="ui form">
+        <h4 class="ui dividing header">新增学生信息</h4>
+        <div class="field">
+            <label>姓名</label>
+            <div class="fields">
+                <div class="field">
+                    <input type="text" name="name" placeholder="张三">
+                </div>
+            </div >
+        </div>
+        <div class="field">
+            <label>学号</label>
+            <div class="fields">
+                <div class="field">
+                    <input type="text" name="stuNum" placeholder="1811090101">
+                </div>
+            </div >
+        </div>
+        <div class="field">
+            <label>年级</label>
+            <select class="ui fluid dropdown">
+                <option value="1">研一</option>
+                <option value="2">研二</option>
+                <option value="3">研三</option>
+                <option value="4">本科</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>性别</label>
+            <select class="ui fluid dropdown">
+                <option value="male">男</option>
+                <option value="female">女</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>初始金额</label>
+            <select class="ui fluid dropdown">
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="150">150</option>
+                <option value="300">300</option>
+            </select>
+        </div>
+        <div class="ui button" tabindex="0">确认添加</div>
+    </form> </div>
+
+
+</div>
+
 </body>
 
 </html>

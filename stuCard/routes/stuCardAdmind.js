@@ -10,7 +10,7 @@ query = {
 
 // 第一步，实现伪数据交互
 router.get('/', function(req, res, next) {
-    res.render('stuAdmin', { title: '学生校园卡管理系统' });
+    res.render('stuAdmin', { title: '学生校园卡管理系统--made by cl,for 口碑电商' });
     res.end();
 });
 
