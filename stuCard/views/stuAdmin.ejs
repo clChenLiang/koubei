@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Site Properities -->
+    <title><%= title %></title>
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/semantic.min.css">
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/semantic.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="main.css">-->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('.ui.form').form({
+                        userName: {
+                            identifier : 'userName',
+                            rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter a username'
+                                }
+                            ]
+                        },
+                        password: {
+                            identifier : 'password',
+                            rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter a password'
+                                },
+                                {
+                                    type   : 'length[6]',
+                                    prompt : 'Your password must be at least 6 characters'
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        inline : true,
+                        on     : 'blur',
+                        onSuccess: submitForm
+                    }
+            );
+
+            $('.ui.form').submit(function(e){
+                return false;
+            });
+            //checkbox init
+            $('.ui.checkbox').checkbox();
+
+        });
+
+        function submitForm(){
+            alert('dd');
+            var formData = $('.ui.form input').serializeArray(); //or .serialize();
+            $.ajax({
+                type: 'POST',
+                url: 'ddd.html',
+                data: formData
+            });
+        }
+    </script>
+
+    <style type="text/css">
+        body {
+            font-family: Verdana,Arial,Helvetica,sans-serif;
+            margin: 0;
+            background-color:#fff;
+        }
+        .ui.grid{
+            margin:0;
+        }
+        .header-row1{
+            height:100px;
+        }
+        .login-header {
+            background-color: #0066b1;
+            height: 160px;
+        }
+
+        .ui.white {
+            color: #fff;
+        }
+        .text-center{
+            text-align:center;
+        }
+
+        .ui.login-div{
+            margin:30px 0 0 0;
+        }
+    </style>
+
+</head>
+<body class="">
+<div class="ui login-header">
+    <div class="ui grid">
+        <div class="row header-row1"></div>
+        <div class="row text-center">
+            <h1 class="ui header white">
+                <i class="settings icon"></i>
+                后台管理-用户登录
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="ui three column stackable grid login-div">
+    <div class="column"></div>
+    <div class="column">
+        <form id="login" class="ui fluid form segment">
+            <div class="field">
+                <label class="">用户名</label>
+                <div class="ui left icon input">
+                    <input type="text" name="userName" placeholder="">
+                    <i class="user icon"></i>
+                    <div class="ui corner label">
+                        <i class="icon asterisk"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="">密码</label>
+                <div class="ui left icon input">
+                    <input type="password" name="password" placeholder="">
+                    <i class="lock icon"></i>
+                    <div class="ui corner label">
+                        <i class="icon asterisk"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <input type="checkbox" name="terms">
+                    <label>记住密码</label>
+                </div>
+            </div>
+            <div class="inline field">
+                <div class="ui blue submit button">登录</div>
+            </div>
+
+        </form>
+    </div>
+    <div class="column"></div>
+</div>
+</body>
+
+</html>

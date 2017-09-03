@@ -10,7 +10,7 @@ query = {
 
 // 第一步，实现伪数据交互
 router.get('/', function(req, res, next) {
-    res.render('index', { title: '陈亮' });
+    res.render('stuAdmin', { title: '学生校园卡管理系统' });
     res.end();
 });
 
@@ -56,7 +56,7 @@ function doWithRouter(req, res){
     res.end();
 }
 
-// 伪数据测试
+// 伪数据测试 -- 从数据库中返回伪数据 -- 待改成数据库中返回数据
 function getStusFromDB(params, res){
     db.getStus(params,function(data){
         res.send(data);
