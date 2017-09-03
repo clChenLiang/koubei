@@ -61,9 +61,10 @@
 </div>
 
 <div class="ui top attached tabular menu">
-    <a class="item active" data-tab="first">学生总览</a>
-    <a class="item" data-tab="second">消费记录</a>
+    <a class="item " data-tab="first">学生总览</a>
+    <a class="item active" data-tab="second">消费记录</a>
     <a class="item" data-tab="third">新增办卡</a>
+    <a class="item" data-tab="four">模拟消费</a>
 </div>
 <div class="ui bottom attached tab segment " data-tab="first"><table class="ui celled table stuInfo">
         <thead>
@@ -211,6 +212,48 @@
             </select>
         </div>
         <div class="ui button" tabindex="0">确认添加</div>
+    </form> </div>
+<div class="ui bottom attached tab segment" data-tab="four">
+    <form class="ui form">
+        <div class="field">
+            <label>消费卡号</label>
+            <div class="fields">
+                <select class="ui fluid dropdown">
+                    <option value="1811082659">1511082659</option>
+                    <option value="1511082660">1511082660</option>
+                    <option value="1511082661">1511082661</option>
+                    <option value="1511082662">1511082662</option>
+                </select>
+            </div >
+        </div>
+        <div class="field">
+            <label>消费类型</label>
+            <div class="fields">
+                <select class="ui fluid dropdown">
+                    <option value="reduce">消费</option>
+                    <option value="add">充值</option>
+                    <!--应该根据这里来生成消费地点选项-->
+                </select>
+            </div >
+        </div>
+        <div class="field">
+            <label>消费金额</label>
+            <div class="fields">
+                <input type="number" name="count" placeholder="5">
+            </div>
+        </div>
+        <div class="field">
+            <label>消费地点</label>
+            <div class="fields">
+                <select class="ui fluid dropdown">
+                    <option value="1">东区一餐</option>
+                    <option value="2">东区二餐</option>
+                    <option value="3">北区一餐</option>
+                    <option value="4">北区二餐</option>
+                </select>
+            </div>
+        </div>
+        <div class="ui button" tabindex="1">确认添加</div>
     </form> </div>
 
 
