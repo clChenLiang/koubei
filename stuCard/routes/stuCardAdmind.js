@@ -13,19 +13,16 @@ router.get('/', function(req, res, next) {
     res.render('stuAdmin', { title: '学生校园卡管理系统--made by cl,for 口碑电商' });
     res.end();
 });
-// testing
-router.get('/getStus',function(req, res){
-    console.log(req.body);
-    doWithRouter(query, res);
-});
 
-
+//done
 router.post('/getStus',function(req, res){
     doWithRouter(req, res);
 });
+router.post('/getConsume',function(req, res){
+    doWithRouter(req, res);
+});
 
-
-router.get('/addStu',function(req, res){
+router.post('/addStu',function(req, res){
     doWithRouter(req, res);
 });
 
@@ -33,7 +30,7 @@ router.get('/updateStuCard',function(req, res){
     doWithRouter(req, res);
 });
 
-router.get('/addStuConsume',function(req, res){
+router.post('/addStuConsume',function(req, res){
     doWithRouter(req, res);
 });
 
@@ -59,16 +56,27 @@ function doWithRouter(req, res){
             }
             getStusFromDB(query,res);
             break;
+        case "addStuConsume":
+            console.log("route stuCard/addStuConsume :",req.body);
+
+            break;
         case "getConsume":
+            query = {
+                wants:"fromStu,type,count,place,time",
+                table:"koubeiStuCard.consumeRecords",
+                conditions:{},
+                pages:{
+                    limit:req.body.limit || 5,
+                    offset:req.body.pages - 1 || 0
+                }
+            }
+            getStusFromDB(query,res);
             break;
         case "addStu":
             console.log("route stuCard/addStu :",req.body);
             break;
         case "updateStuCard":
             console.log("route stuCard/updateStuCard :",req.body);
-            break;
-        case "addStuConsume":
-            console.log("route stuCard/addStuConsume :",req.body);
             break;
         default :
             break;
@@ -83,7 +91,6 @@ function getStusFromDB(query, res){
         res.send(data);
         res.end();
     })
-    //res.send()
 }
 
 

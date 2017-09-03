@@ -16,7 +16,7 @@ var pool = mysql.createPool({
 
 
 
-// testing
+// done;
 var searchResults = function(search,callback){
     // select * from stuInfos limit 0,1;   pages , limit
     var results_back =[] ;
@@ -29,7 +29,6 @@ var searchResults = function(search,callback){
                 //callback(false);
             }else{
                 for(var s in results){results_back.push(results[s])};
-
             }
             callback( results_back );
             conn.release();

@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="stuAdmin.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="stuAdmin.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/stuAdmin.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9310346">
-              <caret line="262" column="0" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6988906">
+              <caret line="304" column="14" selection-start-line="304" selection-start-column="14" selection-end-line="304" selection-end-column="14" />
               <folding>
                 <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
@@ -35,21 +35,19 @@
                 <element signature="n#table#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#form#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cl_stuAdmin.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cl_stuAdmin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/cl_stuAdmin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33817127">
-              <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
+            <state vertical-scroll-proportion="-7.3">
+              <caret line="82" column="70" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="70" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
                 <element signature="e#100#1081#0" expanded="false" />
-                <element signature="e#1187#2415#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -68,8 +66,8 @@
       <file leaf-file-name="mysqlConn.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/mysqlConn.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.1">
-              <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+            <state vertical-scroll-proportion="-3.5">
+              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -80,8 +78,8 @@
       <file leaf-file-name="stuCardAdmind.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/stuCardAdmind.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.1666667">
-              <caret line="50" column="50" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="50" />
+            <state vertical-scroll-proportion="-10.766666">
+              <caret line="59" column="58" selection-start-line="59" selection-start-column="58" selection-end-line="59" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -102,11 +100,11 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/mysqlTest.js" />
         <option value="$PROJECT_DIR$/public/javascripts/jquery.min.js" />
-        <option value="$PROJECT_DIR$/routes/mysqlConn.js" />
-        <option value="$PROJECT_DIR$/routes/stuCardAdmind.js" />
         <option value="$PROJECT_DIR$/views/stuAdmin.ejs" />
         <option value="$PROJECT_DIR$/开发进程.txt" />
         <option value="$PROJECT_DIR$/public/javascripts/cl_stuAdmin.js" />
+        <option value="$PROJECT_DIR$/routes/mysqlConn.js" />
+        <option value="$PROJECT_DIR$/routes/stuCardAdmind.js" />
       </list>
     </option>
   </component>
@@ -391,28 +389,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/stuCardAdmind.js">
+    <entry file="file://$PROJECT_DIR$/开发进程.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1666667">
-          <caret line="50" column="50" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/error.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028744327">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/mysqlConn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.1">
-          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        <state vertical-scroll-proportion="-3.5">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/stuCardAdmind.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.766666">
+          <caret line="59" column="58" selection-start-line="59" selection-start-column="58" selection-end-line="59" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/cl_stuAdmin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3">
+          <caret line="82" column="70" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+            <element signature="e#100#1081#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/stuAdmin.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9310346">
-          <caret line="262" column="0" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6988906">
+          <caret line="304" column="14" selection-start-line="304" selection-start-column="14" selection-end-line="304" selection-end-column="14" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
@@ -422,27 +447,6 @@
             <element signature="n#table#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#form#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/开发进程.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/cl_stuAdmin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33817127">
-          <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-            <element signature="e#100#1081#0" expanded="false" />
-            <element signature="e#1187#2415#0" expanded="false" />
           </folding>
         </state>
       </provider>
