@@ -3,42 +3,6 @@
  */
 $(document).ready(function(){
     var currentPage = 1;
-   /* $('.ui.form').form({
-            userName: {
-                identifier : 'userName',
-                rules: [
-                    {
-                        type   : 'empty',
-                        prompt : 'Please enter a username'
-                    }
-                ]
-            },
-            password: {
-                identifier : 'password',
-                rules: [
-                    {
-                        type   : 'empty',
-                        prompt : 'Please enter a password'
-                    },
-                    {
-                        type   : 'length[6]',
-                        prompt : 'Your password must be at least 6 characters'
-                    }
-                ]
-            }
-        },
-        {
-            inline : true,
-            on     : 'blur',
-            onSuccess: submitForm
-        }
-    );
-
-    $('.ui.form').submit(function(e){
-        return false;
-    });
-    //checkbox init
-    $('.ui.checkbox').checkbox();*/
     $('.menu .item').tab();
     // 绑定事件
     // 使用父元素监听；学生总览和消费记录
@@ -66,6 +30,33 @@ $(document).ready(function(){
         //getData("getStus",{pages:currentPage,skip:5},function(a){alert(JSON.stringify(a))});
         // 获取表体，进行更新
         console.log("tbody :",$(temp).find("tbody"))
+    })
+
+    // 使用ajax代替submit 按钮
+    $(".ui.button").click(function(e){
+        var data = {}
+        // 获取表单中提交的数据
+        $(event.target.parentElement).serializeArray().map(function(a){data[a.name] = a.value});
+
+        // 判断按钮
+        var btn = $(event.target)[0].tabIndex;
+        switch (btn){
+            // btn -- getStus getConsume addStu  updateStuCard  addStuConsume  delCard
+            case 0:// 新增卡
+                getData("addStu",data,function(a){console.log("addStu 成功")});
+                break;
+            case 1:// 添加消费记录
+                getData("addStuConsume",data,function(a){console.log("addStuConsume 成功")});
+                break;
+            case 2:// 更改信息
+                getData("updateStuCard",data,function(a){console.log("updateStuCard 成功")});
+                break;
+            case 3:// 删除卡
+                getData("delCard",data,function(a){console.log("delCard 成功")});
+                break;
+            default :
+                break;
+        }
     })
 });
 
@@ -101,7 +92,7 @@ function getData(url,data,callback){
         }
     });
 }
-// 生成表格
+// 生成表格的 innerHTML
 function generatTable(data){
     var tbody = "", td ;
     for(var i in data){

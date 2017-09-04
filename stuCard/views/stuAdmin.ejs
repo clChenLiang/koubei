@@ -193,7 +193,7 @@
         </div>
         <div class="field">
             <label>年级</label>
-            <select class="ui fluid dropdown">
+            <select class="ui fluid dropdown" name="grade">
                 <option value="1">研一</option>
                 <option value="2">研二</option>
                 <option value="3">研三</option>
@@ -202,14 +202,14 @@
         </div>
         <div class="field">
             <label>性别</label>
-            <select class="ui fluid dropdown">
+            <select class="ui fluid dropdown" name="sex">
                 <option value="male">男</option>
                 <option value="female">女</option>
             </select>
         </div>
         <div class="field">
             <label>初始金额</label>
-            <select class="ui fluid dropdown">
+            <select class="ui fluid dropdown" name="money">
                 <option value="50">50</option>
                 <option value="100">100</option>
                 <option value="150">150</option>
@@ -223,7 +223,7 @@
         <div class="field">
             <label>消费卡号</label>
             <div class="fields">
-                <select class="ui fluid dropdown">
+                <select class="ui fluid dropdown" name="fromStu">
                     <option value="1811082659">1511082659</option>
                     <option value="1511082660">1511082660</option>
                     <option value="1511082661">1511082661</option>
@@ -234,7 +234,7 @@
         <div class="field">
             <label>消费类型</label>
             <div class="fields">
-                <select class="ui fluid dropdown">
+                <select class="ui fluid dropdown" name="type">
                     <option value="reduce">消费</option>
                     <option value="add">充值</option>
                     <!--应该根据这里来生成消费地点选项-->
@@ -250,7 +250,7 @@
         <div class="field">
             <label>消费地点</label>
             <div class="fields">
-                <select class="ui fluid dropdown">
+                <select class="ui fluid dropdown" name="place">
                     <option value="1">东区一餐</option>
                     <option value="2">东区二餐</option>
                     <option value="3">北区一餐</option>
@@ -266,7 +266,7 @@
         <div class="field">
             <label>学生卡号</label>
             <div class="fields">
-                <select class="ui fluid dropdown">
+                <select class="ui fluid dropdown" name="stuNum">
                     <option value="1811082659">1511082659</option>
                     <option value="1511082660">1511082660</option>
                     <option value="1511082661">1511082661</option>
@@ -275,8 +275,16 @@
             </div >
         </div>
         <div class="field">
+            <label>姓名</label>
+            <div class="fields">
+                <div class="field">
+                    <input type="text" name="name" placeholder="">
+                </div>
+            </div >
+        </div>
+        <div class="field">
             <label>年级</label>
-            <select class="ui fluid dropdown">
+            <select class="ui fluid dropdown" name="grade">
                 <option value="1">研一</option>
                 <option value="2">研二</option>
                 <option value="3">研三</option>
@@ -285,24 +293,24 @@
         </div>
         <div class="field">
             <label>性别</label>
-            <select class="ui fluid dropdown">
+            <select class="ui fluid dropdown" name="sex">
                 <option value="male">男</option>
                 <option value="female">女</option>
             </select>
         </div>
         <div class="field">
             <label>初始金额</label>
-            <select class="ui fluid dropdown">
+            <select class="ui fluid dropdown" name="money">
                 <option value="50">50</option>
                 <option value="100">100</option>
                 <option value="150">150</option>
                 <option value="300">300</option>
             </select>
         </div>
-        <div class="two field">
+        <!--<div class="two field">-->
             <div class="ui button" tabindex="2">确认更改</div>
             <div class="ui button" tabindex="3">删除该卡</div>
-        </div>
+        <!--</div>-->
     </form> </div>
 </body>
 

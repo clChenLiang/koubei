@@ -10,7 +10,7 @@
     数据提交：$.form()
 
 
-数据接口：
+数据接口：getStus getConsume addStu  updateStuCard  addStuConsume  delCard
     getStus ：
         前端：
             getData("getStus",{pages:currentPage,limit:1},function(a){console.log(a)});// 数据随意

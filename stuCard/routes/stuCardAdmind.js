@@ -21,16 +21,17 @@ router.post('/getStus',function(req, res){
 router.post('/getConsume',function(req, res){
     doWithRouter(req, res);
 });
-
+// working
 router.post('/addStu',function(req, res){
     doWithRouter(req, res);
 });
-
-router.get('/updateStuCard',function(req, res){
+router.post('/addStuConsume',function(req, res){
     doWithRouter(req, res);
 });
-
-router.post('/addStuConsume',function(req, res){
+router.post('/updateStuCard',function(req, res){
+    doWithRouter(req, res);
+});
+router.post('/delCard',function(req, res){
     doWithRouter(req, res);
 });
 
@@ -56,10 +57,7 @@ function doWithRouter(req, res){
             }
             getStusFromDB(query,res);
             break;
-        case "addStuConsume":
-            console.log("route stuCard/addStuConsume :",req.body);
 
-            break;
         case "getConsume":
             query = {
                 wants:"fromStu,type,count,place,time",
@@ -72,11 +70,19 @@ function doWithRouter(req, res){
             }
             getStusFromDB(query,res);
             break;
+        case "addStuConsume":
+            console.log("route stuCard/addStuConsume :",req.body);
+            res.end()
+            break;
         case "addStu":
             console.log("route stuCard/addStu :",req.body);
+            res.end()
             break;
         case "updateStuCard":
-            console.log("route stuCard/updateStuCard :",req.body);
+            console.log("route stuCard/updateStuCard :",req.body);res.end()
+            break;
+        case "delCard":
+            console.log("route stuCard/delCard :",req.body);res.end()
             break;
         default :
             break;
