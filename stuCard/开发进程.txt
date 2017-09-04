@@ -28,5 +28,9 @@
     addStu ：
     updateStuCard ：
     addStuConsume ：
+        与addStu合并
 
 数据库操作：
+    generateSql_delete
+    generateSql_search
+    generateSql_update

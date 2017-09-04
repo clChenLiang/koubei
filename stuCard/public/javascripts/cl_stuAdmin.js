@@ -58,6 +58,46 @@ $(document).ready(function(){
                 break;
         }
     })
+
+    $(".top>a.item").click(function(e){
+        console.log(e.target.text);
+        console.log(e.target.dataset.tab);
+        // $(".tab.active") 处于活动状态的tab
+        switch ( e.target.dataset.tab ){
+            // 使用中文
+            case "first"://"学生总览":
+                getData("getStus",{pages:1,limit:5},function(rows){
+                    console.log("rows; ",rows);
+                    $(".tab.active").find("tbody").html( generatTable(rows) );
+                });
+                break;
+            case "second"://"消费记录":
+                getData("getConsume",{pages:1,limit:5},function(rows){
+                    console.log("rows; ",rows);
+                    $(".tab.active").find("tbody").html( generatTable(rows) );
+                });
+                break;
+            case "third"://"新增办卡":
+                break;
+            case "four"://"模拟消费":
+                getData("getStus",{wants:"stuNum"},function(rows){
+                    console.log("rows; ",rows);
+                    // 只需要id
+                    $(".tab.active").find("[name='fromStu']").html( generatOpts(rows) );
+                });
+                break;
+            case "five"://"修改信息":
+                getData("getStus",{wants:"stuNum"},function(rows){
+                    console.log("rows; ",rows);
+                    // 只需要id
+                    $(".tab.active").find("[name='stuNum']").html( generatOpts(rows) );
+                });
+                break;
+            default :
+                break;
+        }
+    })
+
 });
 
 function submitForm(){
@@ -103,5 +143,15 @@ function generatTable(data){
         tbody += "<tr>"+td+"</tr>";
     }
     return tbody;
+}
+
+//生成选项
+function generatOpts(data){
+    // @params : data = []
+    var opts = "";
+    for(var i in data){
+        opts += "<option value=" + data[i].stuNum + ">" + data[i].stuNum + "</option>"
+    }
+    return opts;
 }
 

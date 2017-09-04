@@ -42,9 +42,9 @@ function doWithRouter(req, res){
         case "getStus":
             console.log("route stuCard/getStus :",req.body);
             query = {
-                wants:"name,grade,sex,stuNum,money",
+                wants:req.body.wants || "name,grade,sex,stuNum,money",
                 table:"koubeiStuCard.stuInfos",
-                conditions:{},
+                conditions:req.body.conditions || {},
                 pages:{
                     // 默认5，0 作为偏移
                     limit:req.body.limit || 5,
