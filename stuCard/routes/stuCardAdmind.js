@@ -38,26 +38,28 @@ function doWithRouter(req, res){
     // 获取子路由
     var _route = req._parsedUrl.pathname.slice(1);
     var query = {};
-    switch (_route){
+    switch (_route) {
         case "getStus":
-            console.log("route stuCard/getStus :",req.body);
+            console.log("route stuCard/getStus :", req.body);
+
             query = {
-                wants:req.body.wants || "name,grade,sex,stuNum,money",
-                table:"koubeiStuCard.stuInfos",
-                conditions:req.body.conditions || {},
-                pages:{
+                wants:/* req.body.wants ||*/ "name,grade,sex,stuNum,money",
+                table: "koubeiStuCard.stuInfos",
+                // 较复杂的一个判断，待优化
+                conditions: (req.body.conditions == undefined ? {} :JSON.parse(req.body.conditions)),
+                pages: {
                     // 默认5，0 作为偏移
-                    limit:req.body.limit || 5,
-                    offset:req.body.pages - 1 || 0
+                    limit:parseInt( req.body.limit) || 5,
+                    offset:parseInt( req.body.pages - 1) || 0
                 }
             }
-            getStusFromDB(query,res);
+            getStusFromDB(query, res);
             break;
         case "getConsume":
             query = {
                 wants:"fromStu,type,count,place,time",
                 table:"koubeiStuCard.consumeRecords",
-                conditions:{},
+                conditions:(req.body.conditions == undefined ? {} :JSON.parse(req.body.conditions)),
                 pages:{
                     limit:req.body.limit || 5,
                     offset:req.body.pages - 1 || 0

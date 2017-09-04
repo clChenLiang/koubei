@@ -66,7 +66,7 @@ $(document).ready(function(){
         switch ( e.target.dataset.tab ){
             // 使用中文
             case "first"://"学生总览":
-                getData("getStus",{pages:1,limit:5},function(rows){
+                getData("getStus",{pages:1,limit:5,conditions:{}},function(rows){
                     console.log("rows; ",rows);
                     $(".tab.active").find("tbody").html( generatTable(rows) );
                 });
@@ -98,6 +98,19 @@ $(document).ready(function(){
         }
     })
 
+    // 给选项框添加onchange事件
+    $("select[name='stuNum']").change(function(e){
+        console.log("changed :",this.value)
+        getData("getStus",{ wants:"*",conditions:JSON.stringify({stuNum:[this.value]}) },function(rows){
+            console.log("rows; ",rows);
+            // 只需要id
+            $(".tab.active").find("[name='name']").val( rows[0].name );
+            $(".tab.active").find("[name='grade']").find("option[value="+ rows[0].grade +"]").attr("selected",true);
+            $(".tab.active").find("[name='money']").find("option[value="+ rows[0].money +"]").attr("selected",true);
+        });
+    })
+
+
 });
 
 function submitForm(){
@@ -111,6 +124,7 @@ function submitForm(){
 
 // by cl -- date:2017年9月3日
 function getData(url,data,callback){
+    console.log(data,callback);
     // @params : url --- getStus  addStu  updateStuCard  addStuConsume
     var data, callback;
     if(typeof data === "function"){
@@ -123,7 +137,7 @@ function getData(url,data,callback){
     }
     $.ajax({
         "url":"/stuCard/"+url,
-        "data":data,
+        "data": data,
         "type":"POST",
         "dataType":"json",
         "success":callback,
@@ -131,6 +145,7 @@ function getData(url,data,callback){
             alert("与远程服务器连接失败！");
         }
     });
+    console.log(data,callback);
 }
 // 生成表格的 innerHTML
 function generatTable(data){
