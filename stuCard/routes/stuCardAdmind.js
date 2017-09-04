@@ -80,14 +80,29 @@ function doWithRouter(req, res){
             addNew(query, res);
             break;
         case "addStu":
+            query = {
+                table:"koubeiStuCard.stuInfos",
+                conditions:{name:"李三",stuNum:1811082659,money:560,sex:"男",grade:"本科"}
+            }
             console.log("route stuCard/addStu :",req.body);
-            res.end()
+            addNew(query, res);
             break;
         case "updateStuCard":
-            console.log("route stuCard/updateStuCard :",req.body);res.end()
+            query = {
+                table:"koubeiStuCard.stuInfos",
+                conditions:{stuNum:1811082659},
+                wants:{sex:"mm"}
+            }
+            console.log("route stuCard/updateStuCard :",req.body);
+            updateInfo(query, res);
             break;
         case "delCard":
-            console.log("route stuCard/delCard :",req.body);res.end()
+            query = {
+                table:"koubeiStuCard.stuInfos",
+                conditions:{stuNum:[1811082659]}
+            }
+            console.log("route stuCard/delCard :",req.body);
+            delStu(query, res);
             break;
         default :
             break;
@@ -103,7 +118,7 @@ function getStusFromDB(query, res){
         res.end();
     })
 }
-
+// 用于新增用户和消费记录
 function addNew(query, res){
     db.addStu(query,function(data){
         console.log("get from db : ",data);
@@ -112,7 +127,22 @@ function addNew(query, res){
         res.end();
     })
 }
-
+// 更改用户信息
+function updateInfo(query, res){
+    db.updateStuCard(query,function(data){
+        console.log("get from db : ",data);
+        res.send(""+data);
+        res.end();
+    })
+}
+// 删除用户信息
+function delStu(query, res){
+    db.delInfo(query,function(data){
+        console.log("get from db : ",data);
+        res.send(""+data);
+        res.end();
+    })
+}
 
 // 生成指定时间格式  2017/09/04 09:45:54
 function timeFormate(time){

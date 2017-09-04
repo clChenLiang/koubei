@@ -35,7 +35,6 @@ var searchResults = function(search,callback){
         })
     });
 }
-// testing
 var addNew = function(search,callback){
     pool.getConnection(function(err, conn){
         var sql=generateSql_insert(search);
@@ -48,47 +47,17 @@ var addNew = function(search,callback){
                 console.log("返回结果为空");
                 callback(false);
             }else{
-                callback(results.id);
+                callback(results.insertId);
             }
             conn.release();
         })
     })
 }
 
-
-
-
-
-var updateCars = function(search,callback){
-    var results_back = [];
-    pool.getConnection(function(err,conn){
-        var sql = generateSql_update(search);
-        console.log("sql:"+sql.sql+" sql_d: "+sql.sqlData);
-        conn.query(sql.sql,sql.sqlData,function(err,results,field){
-            if(err){
-                console.log("error when conn_query : "+err);
-                callback(false);
-            } else{
-                callback(results.feild)
-            }
-            conn.release();
-        });
-        console.log("结果："+results_back);
-    })
-}
-
-
-
-
-
-var insertCars = function(search,callback){
-    var searchTemp = {
-        action:"insert",
-        table:'nb77.cars',
-        conditions:search
-    }
-    pool.getConnection(function(err,conn){
-        var sql=generateSql_insert(searchTemp);
+var updateStu = function(search, callback){
+    pool.getConnection(function(err, conn){
+        var sql=generateSql_update(search);
+        console.log(sql);
         conn.query(sql.sql,sql.sqlData,function(err,results,field){
             if(err){
                 console.log("error when conn_query : "+err);
@@ -97,7 +66,26 @@ var insertCars = function(search,callback){
                 console.log("返回结果为空");
                 callback(false);
             }else{
-                callback(results.insertId);
+                callback(results.affectedRows);
+            }
+            conn.release();
+        })
+    })
+}
+// testing
+var delInfo = function(search, callback){
+    pool.getConnection(function(err, conn){
+        var sql=generateSql_delete(search);
+        console.log(sql);
+        conn.query(sql.sql,sql.sqlData,function(err,results,field){
+            if(err){
+                console.log("error when conn_query : "+err);
+                callback(false+err);
+            }else if(!results){
+                console.log("返回结果为空");
+                callback(false);
+            }else{
+                callback(results);
             }
             conn.release();
         })
@@ -143,21 +131,31 @@ var generateSql_search = function(/*action,*/search){
     search.pages?(sql+=" limit "+search.pages.limit+" offset "+search.pages.offset):null;
     return {sql:sql,sqlData:sql_d}
 }
-// 将数据库结果转换成前端需要的数据,并增加回调参数;可扩充选择参数
-function changResultToFonted(result, callback){
-    //
-    var res = {};
-    // for(){}
-    callback(res);
+// 用于生成数据库删除语句
+var generateSql_delete = function(search){
+    var sql = "delete from " + search.table + " ",sql_d = [],sql_temp = "";
+    for(var condi in search.conditions){
+        if(search.conditions[condi].length == 1){
+            sql_temp += " and " + condi + " = ? "
+            sql_d.push(search.conditions[condi][0])
+        }else if(search.conditions[condi].length == 2){
+            sql_temp += " and " + condi + " between ? and ? "
+            sql_d.push(search.conditions[condi][0]);
+            sql_d.push(search.conditions[condi][1]);
+        }
+    }
+    sql += sql_temp ? ("where"+sql_temp.substring(4,sql_temp.length-1)):"";
+    return {sql:sql, sqlData:sql_d}
 }
-
 
 // 获取所有学生列表,以及消费记录
 module.exports.getStus = searchResults;
-// 添加学生信息
+// 添加学生信息,以及模拟的消费记录
 module.exports.addStu = addNew;
 // 更改学生信息
-module.exports.updateStuCard = insertCars;
+module.exports.updateStuCard = updateStu;
 // 添加消费信息,会更改卡内余额库
-module.exports.addStuConsume = insertCars;
+//module.exports.addStuConsume = insertCars;
+//删除用户信息
+module.exports.delInfo = delInfo;
 
