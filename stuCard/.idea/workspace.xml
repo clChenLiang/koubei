@@ -65,10 +65,11 @@
       <file leaf-file-name="mysqlConn.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/mysqlConn.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.5">
-              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+            <state vertical-scroll-proportion="-18.366667">
+              <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="e#1517#2041#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -77,11 +78,10 @@
       <file leaf-file-name="stuCardAdmind.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/stuCardAdmind.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4157815">
-              <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.47914183">
+              <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
               <folding>
-                <element signature="e#1192#1513#0" expanded="false" />
-                <element signature="e#1619#1914#0" expanded="false" />
+                <element signature="e#1202#1523#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -102,10 +102,10 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/mysqlTest.js" />
         <option value="$PROJECT_DIR$/public/javascripts/jquery.min.js" />
-        <option value="$PROJECT_DIR$/routes/mysqlConn.js" />
         <option value="$PROJECT_DIR$/views/stuAdmin.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/cl_stuAdmin.js" />
         <option value="$PROJECT_DIR$/开发进程.txt" />
+        <option value="$PROJECT_DIR$/routes/mysqlConn.js" />
         <option value="$PROJECT_DIR$/routes/stuCardAdmind.js" />
       </list>
     </option>
@@ -120,8 +120,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -304,10 +304,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1932299" sideWeight="0.49554566" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14436248" sideWeight="0.49554566" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -455,21 +455,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/mysqlConn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        <state vertical-scroll-proportion="-18.366667">
+          <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1517#2041#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/stuCardAdmind.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4157815">
-          <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.47914183">
+          <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
           <folding>
-            <element signature="e#1192#1513#0" expanded="false" />
-            <element signature="e#1619#1914#0" expanded="false" />
+            <element signature="e#1202#1523#0" expanded="false" />
           </folding>
         </state>
       </provider>

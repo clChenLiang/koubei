@@ -35,7 +35,25 @@ var searchResults = function(search,callback){
         })
     });
 }
-
+// testing
+var addNew = function(search,callback){
+    pool.getConnection(function(err, conn){
+        var sql=generateSql_insert(search);
+        console.log(sql);
+        conn.query(sql.sql,sql.sqlData,function(err,results,field){
+            if(err){
+                console.log("error when conn_query : "+err);
+                callback(false+err);
+            }else if(!results){
+                console.log("返回结果为空");
+                callback(false);
+            }else{
+                callback(results.id);
+            }
+            conn.release();
+        })
+    })
+}
 
 
 
@@ -44,26 +62,18 @@ var searchResults = function(search,callback){
 var updateCars = function(search,callback){
     var results_back = [];
     pool.getConnection(function(err,conn){
-
         var sql = generateSql_update(search);
         console.log("sql:"+sql.sql+" sql_d: "+sql.sqlData);
         conn.query(sql.sql,sql.sqlData,function(err,results,field){
             if(err){
                 console.log("error when conn_query : "+err);
                 callback(false);
-            }/*else if(!results){
-             console.log("返回结果为空");
-             }*/else{
-                //for(var s in results){ results_back.push(results[s]) };//此处应该返回成功执行与否
-                //callback(true);
+            } else{
                 callback(results.feild)
             }
             conn.release();
-            //callback(results_back)
-            //return 应该放在这里
         });
         console.log("结果："+results_back);
-        //return results_back;//到时需要验证
     })
 }
 
@@ -142,10 +152,10 @@ function changResultToFonted(result, callback){
 }
 
 
-// 获取所有学生列表
+// 获取所有学生列表,以及消费记录
 module.exports.getStus = searchResults;
 // 添加学生信息
-module.exports.addStu = insertCars;
+module.exports.addStu = addNew;
 // 更改学生信息
 module.exports.updateStuCard = insertCars;
 // 添加消费信息,会更改卡内余额库

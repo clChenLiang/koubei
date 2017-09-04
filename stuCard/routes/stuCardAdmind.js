@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require("./mysqlConn");
 
-// res.body
+// res.body --- 待 del
 query = {
     action:"addStu",//getStus getConsume addStu  updateStuCard  addStuConsume
     params:"{}"
@@ -57,7 +57,6 @@ function doWithRouter(req, res){
             }
             getStusFromDB(query,res);
             break;
-
         case "getConsume":
             query = {
                 wants:"fromStu,type,count,place,time",
@@ -71,8 +70,14 @@ function doWithRouter(req, res){
             getStusFromDB(query,res);
             break;
         case "addStuConsume":
+            query = {
+                //{ fromStu: '1811082659', type: 'reduce', count: '', place: '1' }
+                wants:"fromStu,type,count,place,time",
+                table:"koubeiStuCard.consumeRecords",
+                conditions:{type:"消费",fromStu:1811082659,count:5.6,place:"东区二餐二楼",time:timeFormate(new Date())}
+            }
             console.log("route stuCard/addStuConsume :",req.body);
-            res.end()
+            addNew(query, res);
             break;
         case "addStu":
             console.log("route stuCard/addStu :",req.body);
@@ -90,7 +95,7 @@ function doWithRouter(req, res){
     //res.end();
 }
 
-// 伪数据测试 -- 从数据库中返回伪数据 -- 待改成数据库中返回数据
+// 用于查询数据，包括 学生信息，消费信息
 function getStusFromDB(query, res){
     db.getStus(query,function(data){
         console.log("get from db : ",data);
@@ -99,5 +104,18 @@ function getStusFromDB(query, res){
     })
 }
 
+function addNew(query, res){
+    db.addStu(query,function(data){
+        console.log("get from db : ",data);
+        // res.send() 不能直接发送数字类型
+        res.send(""+data);
+        res.end();
+    })
+}
 
+
+// 生成指定时间格式  2017/09/04 09:45:54
+function timeFormate(time){
+    return (time.toJSON().substr(0,10)+" "+time.toTimeString().substr(0,8)).replace(/-/g,"/");
+}
 module.exports = router;
