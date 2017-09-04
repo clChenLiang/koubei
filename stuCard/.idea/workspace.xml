@@ -24,25 +24,25 @@
       <file leaf-file-name="stuAdmin.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/stuAdmin.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.948276">
-              <caret line="310" column="43" selection-start-line="310" selection-start-column="35" selection-end-line="310" selection-end-column="43" />
+            <state vertical-scroll-proportion="-3.586207">
+              <caret line="234" column="31" selection-start-line="234" selection-start-column="31" selection-end-line="234" selection-end-column="31" />
               <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#table#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#table#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cl_stuAdmin.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cl_stuAdmin.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/cl_stuAdmin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.9">
-              <caret line="54" column="32" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.46172538">
+              <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
                 <element signature="n#!!block;n#getData#0" expanded="false" />
@@ -65,8 +65,8 @@
       <file leaf-file-name="mysqlConn.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/mysqlConn.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.666667">
-              <caret line="146" column="29" selection-start-line="146" selection-start-column="24" selection-end-line="146" selection-end-column="29" />
+            <state vertical-scroll-proportion="4.233333">
+              <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -74,12 +74,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stuCardAdmind.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="stuCardAdmind.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/stuCardAdmind.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27532777">
-              <caret line="101" column="47" selection-start-line="101" selection-start-column="47" selection-end-line="101" selection-end-column="47" />
-              <folding />
+            <state vertical-scroll-proportion="-11.666667">
+              <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
+              <folding>
+                <element signature="n#!!block;n#getStusFromDB#0" expanded="false" />
+                <element signature="n#!!block;n#addNew#0" expanded="false" />
+                <element signature="n#!!block;n#updateInfo#0" expanded="false" />
+                <element signature="n#!!block;n#delStu#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,11 +104,11 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/mysqlTest.js" />
         <option value="$PROJECT_DIR$/public/javascripts/jquery.min.js" />
+        <option value="$PROJECT_DIR$/开发进程.txt" />
         <option value="$PROJECT_DIR$/views/stuAdmin.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/cl_stuAdmin.js" />
-        <option value="$PROJECT_DIR$/开发进程.txt" />
-        <option value="$PROJECT_DIR$/routes/mysqlConn.js" />
         <option value="$PROJECT_DIR$/routes/stuCardAdmind.js" />
+        <option value="$PROJECT_DIR$/routes/mysqlConn.js" />
       </list>
     </option>
   </component>
@@ -115,10 +120,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="431" />
+    <option name="width" value="1489" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -301,10 +305,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="431" y="0" width="1489" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14436248" sideWeight="0.49554566" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13921434" sideWeight="0.49554566" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -415,21 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/stuAdmin.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.948276">
-          <caret line="310" column="43" selection-start-line="310" selection-start-column="35" selection-end-line="310" selection-end-column="43" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#table#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#table#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/开发进程.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -438,33 +427,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/cl_stuAdmin.js">
+    <entry file="file://$PROJECT_DIR$/routes/stuCardAdmind.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.9">
-          <caret line="54" column="32" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="32" />
+        <state vertical-scroll-proportion="-11.666667">
+          <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
           <folding>
-            <element signature="e#0#41#0" expanded="false" />
-            <element signature="n#!!block;n#getData#0" expanded="false" />
-            <element signature="n#!!block;n#generatTable#0" expanded="false" />
+            <element signature="n#!!block;n#getStusFromDB#0" expanded="false" />
+            <element signature="n#!!block;n#addNew#0" expanded="false" />
+            <element signature="n#!!block;n#updateInfo#0" expanded="false" />
+            <element signature="n#!!block;n#delStu#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/mysqlConn.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.666667">
-          <caret line="146" column="29" selection-start-line="146" selection-start-column="24" selection-end-line="146" selection-end-column="29" />
+        <state vertical-scroll-proportion="4.233333">
+          <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/stuCardAdmind.js">
+    <entry file="file://$PROJECT_DIR$/views/stuAdmin.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27532777">
-          <caret line="101" column="47" selection-start-line="101" selection-start-column="47" selection-end-line="101" selection-end-column="47" />
-          <folding />
+        <state vertical-scroll-proportion="-3.586207">
+          <caret line="234" column="31" selection-start-line="234" selection-start-column="31" selection-end-line="234" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#table#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#table#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/cl_stuAdmin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46172538">
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+            <element signature="n#!!block;n#getData#0" expanded="false" />
+            <element signature="n#!!block;n#generatTable#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -24,7 +24,7 @@ $(document).ready(function(){
         action = action === "first" ? "getStus" : "getConsume";
         console.log(action);
         // 暂定每页放5条数据
-        getData(action,{pages:currentPage,limit:1},function(rows){
+        getData(action,{pages:currentPage,limit:5},function(rows){
             $(temp).find("tbody").html( generatTable(rows) );
         });
         //getData("getStus",{pages:currentPage,skip:5},function(a){alert(JSON.stringify(a))});

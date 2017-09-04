@@ -8,7 +8,6 @@ query = {
     params:"{}"
 }
 
-// 第一步，实现伪数据交互
 router.get('/', function(req, res, next) {
     res.render('stuAdmin', { title: '学生校园卡管理系统--made by cl,for 口碑电商' });
     res.end();
@@ -21,7 +20,6 @@ router.post('/getStus',function(req, res){
 router.post('/getConsume',function(req, res){
     doWithRouter(req, res);
 });
-// working
 router.post('/addStu',function(req, res){
     doWithRouter(req, res);
 });
@@ -37,11 +35,9 @@ router.post('/delCard',function(req, res){
 
 // 将所有路由处理集成到此处执行
 function doWithRouter(req, res){
-    //console.log(req.url,req._parsedUrl.pathname);
     // 获取子路由
     var _route = req._parsedUrl.pathname.slice(1);
     var query = {};
-    //console.log(_route);
     switch (_route){
         case "getStus":
             console.log("route stuCard/getStus :",req.body);
@@ -74,7 +70,8 @@ function doWithRouter(req, res){
                 //{ fromStu: '1811082659', type: 'reduce', count: '', place: '1' }
                 wants:"fromStu,type,count,place,time",
                 table:"koubeiStuCard.consumeRecords",
-                conditions:{type:"消费",fromStu:1811082659,count:5.6,place:"东区二餐二楼",time:timeFormate(new Date())}
+                //conditions:{type:"消费",fromStu:1811082659,count:5.6,place:"东区二餐二楼",time:timeFormate(new Date())}
+                conditions:{type:req.body.type,fromStu:parseInt(req.body.fromStu),count:parseInt(req.body.count),place:req.body.place,time:timeFormate(new Date())}
             }
             console.log("route stuCard/addStuConsume :",req.body);
             addNew(query, res);
@@ -82,7 +79,8 @@ function doWithRouter(req, res){
         case "addStu":
             query = {
                 table:"koubeiStuCard.stuInfos",
-                conditions:{name:"李三",stuNum:1811082659,money:560,sex:"男",grade:"本科"}
+                //conditions:{name:"李三",stuNum:1811082659,money:560,sex:"男",grade:"本科"},
+                conditions:{name:req.body.name,stuNum:parseInt(req.body.stuNum),money:parseInt(req.body.money),sex:req.body.sex,grade:req.body.grade}
             }
             console.log("route stuCard/addStu :",req.body);
             addNew(query, res);
@@ -90,8 +88,13 @@ function doWithRouter(req, res){
         case "updateStuCard":
             query = {
                 table:"koubeiStuCard.stuInfos",
-                conditions:{stuNum:1811082659},
-                wants:{sex:"mm"}
+                conditions:{stuNum:parseInt(req.body.stuNum)},
+                wants:{
+                    name:req.body.name,
+                    grade:req.body.grade,
+                    sex:req.body.sex,
+                    money:parseInt(req.body.money)
+                }
             }
             console.log("route stuCard/updateStuCard :",req.body);
             updateInfo(query, res);
@@ -99,7 +102,7 @@ function doWithRouter(req, res){
         case "delCard":
             query = {
                 table:"koubeiStuCard.stuInfos",
-                conditions:{stuNum:[1811082659]}
+                conditions:{stuNum:[parseInt(req.body.stuNum)]}
             }
             console.log("route stuCard/delCard :",req.body);
             delStu(query, res);
@@ -107,9 +110,8 @@ function doWithRouter(req, res){
         default :
             break;
     }
-    //res.end();
-}
 
+}
 // 用于查询数据，包括 学生信息，消费信息
 function getStusFromDB(query, res){
     db.getStus(query,function(data){

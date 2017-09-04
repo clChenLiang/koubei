@@ -128,7 +128,7 @@ var generateSql_search = function(/*action,*/search){
         }
     }
     sql += sql_temp? ("where"+sql_temp.substring(4,sql_temp.length-1)):"";//截取掉 sql_temp 的前后，使之无误插入 sql 语句中来
-    search.pages?(sql+=" limit "+search.pages.limit+" offset "+search.pages.offset):null;
+    search.pages?(sql+=" limit "+search.pages.limit+" offset "+search.pages.offset*search.pages.limit):null;
     return {sql:sql,sqlData:sql_d}
 }
 // 用于生成数据库删除语句
