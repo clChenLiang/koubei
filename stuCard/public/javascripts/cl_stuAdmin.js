@@ -8,6 +8,7 @@ $(document).ready(function(){
     // 使用父元素监听；学生总览和消费记录
     $("tfoot div").click(function(event){
         console.log("click",event.target.text,event.target.innerText,event);
+        var conditions = {};
         if(event.target.text){
             // 此处有 ... 在后续过程需要处理
             currentPage = parseInt(event.target.text)||currentPage;
@@ -16,6 +17,13 @@ $(document).ready(function(){
             event.target.className.indexOf("right") > -1 ? currentPage++ : currentPage--;
             currentPage = currentPage > 0 ? currentPage : 1;
         }
+        var formstu = parseInt($($(".searchSpe").parent()[0]).find("select").val());
+        // NaN 判断
+        if( formstu/1 === formstu){
+            conditions = {formStu:[formstu]}
+        }
+
+
         console.log(currentPage);
         // 可以使用多种方式实现：在按钮btn 中增加 stuinfo  consume class进行区分
         // 此处，出于统一与练习 event.target.parentElement 目的，保存之; 分别表示 i a 标签触发上去
@@ -24,7 +32,7 @@ $(document).ready(function(){
         action = action === "first" ? "getStus" : "getConsume";
         console.log(action);
         // 暂定每页放5条数据
-        getData(action,{pages:currentPage,limit:5},function(rows){
+        getData(action,{pages:currentPage,limit:5,conditions:JSON.stringify( conditions )},function(rows){
             $(temp).find("tbody").html( generatTable(rows) );
         });
         //getData("getStus",{pages:currentPage,skip:5},function(a){alert(JSON.stringify(a))});
@@ -58,7 +66,7 @@ $(document).ready(function(){
                 break;
         }
     })
-
+    // 页面初始化，切换
     $(".top>a.item").click(function(e){
         console.log(e.target.text);
         console.log(e.target.dataset.tab);
@@ -72,6 +80,11 @@ $(document).ready(function(){
                 });
                 break;
             case "second"://"消费记录":
+                getData("getStus",{wants:"stuNum"},function(rows){
+                    rows = [{stuNum:"请选择要查询的学生"}].concat(rows);
+                    console.log("rows; ",rows);
+                    $(".tab.active").find("[name='fromStu']").html( generatOpts(rows) );
+                });
                 getData("getConsume",{pages:1,limit:5},function(rows){
                     console.log("rows; ",rows);
                     $(".tab.active").find("tbody").html( generatTable(rows) );
@@ -110,7 +123,20 @@ $(document).ready(function(){
         });
     })
 
+//    增加搜索
+    $(".searchSpe").click(function(e){
+        console.log();
+        var formstu = $($(this).parent()[0]).find("select").val();
+        getData("getConsume",{pages:1,limit:5,conditions:JSON.stringify({fromStu:[ parseInt(formstu) ]})},function(rows){
+            console.log("rows; ",rows);
+            $(".tab.active").find("tbody").html( generatTable(rows) );
+        });
+    })
 
+//    打印下载功能
+    $(".printXlsx").click(function(e){
+        alert("该 功 能 正 在 研 发");
+    })
 });
 
 function submitForm(){

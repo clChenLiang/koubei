@@ -117,6 +117,7 @@ function doWithRouter(req, res){
 // 用于查询数据，包括 学生信息，消费信息
 function getStusFromDB(query, res){
     db.getStus(query,function(data){
+        console.log("with query :",query);
         console.log("get from db : ",data);
         res.send(data);
         res.end();
