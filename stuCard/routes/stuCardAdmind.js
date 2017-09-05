@@ -49,7 +49,7 @@ function doWithRouter(req, res){
                 conditions: (req.body.conditions == undefined ? {} :JSON.parse(req.body.conditions)),
                 pages: {
                     // 默认5，0 作为偏移
-                    limit:parseInt( req.body.limit) || 5,
+                    limit:parseInt( req.body.limit) || 50,
                     offset:parseInt( req.body.pages - 1) || 0
                 }
             }
@@ -61,7 +61,7 @@ function doWithRouter(req, res){
                 table:"koubeiStuCard.consumeRecords",
                 conditions:(req.body.conditions == undefined ? {} :JSON.parse(req.body.conditions)),
                 pages:{
-                    limit:req.body.limit || 5,
+                    limit:req.body.limit || 50,
                     offset:req.body.pages - 1 || 0
                 }
             }
@@ -117,7 +117,7 @@ function doWithRouter(req, res){
 // 用于查询数据，包括 学生信息，消费信息
 function getStusFromDB(query, res){
     db.getStus(query,function(data){
-        console.log("with query :",query);
+        console.log("with query :")
         console.log("get from db : ",data);
         res.send(data);
         res.end();

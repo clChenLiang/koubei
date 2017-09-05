@@ -34,3 +34,7 @@
     generateSql_delete
     generateSql_search
     generateSql_update
+    等
+
+下载 xlsx 文件：
+    前端打印请求 → node-xlsx 生成文件 → 返回文件路径 → 前端下载
